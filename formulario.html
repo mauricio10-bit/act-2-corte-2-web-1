@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="icon" type="image/PNG" href="./imagenes/formularioICO.png">
+</head>
+
+<body style="background-image: url(./imagenes/fondo.jpg);">
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Inicio</a>
+            <div class="d-flex" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-end">
+                    <li style="margin: 5px" class="nav-item">
+                        <a class="btn btn-outline-light" aria-current="page" href="login.html">Iniciar sesion</a>
+                    </li>
+                    <li style="margin: 5px" class="nav-item">
+                        <a class="btn btn-outline-light" href="formulario.html">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container table-responsive mt-5">
+            <div class="card border-dark" data-bs-theme="dark">
+                <div class="card-header text-center">Formulario de registro de usuarios</div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="col-12 col-md-6 d-flex justify-content-center">
+                                <img class="img-fluid mx-auto d-block" src="./imagenes/registroIMG.png"
+                                    alt="registro-img">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="cedula" class="form-label">Cedula</label>
+                                <input type="text" placeholder="Ingrese su Cedula" class="form-control" id="cedula">
+                                <br>
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" placeholder="Ingrese su nombre" class="form-control" id="nombre">
+                                <br>
+                                <label for="apellido" class="form-label">Apellido</label>
+                                <input type="text" placeholder="Ingrese su apellido" class="form-control" id="apellido">
+                                <br>
+                                <label for="direccion" class="form-label">Direccion</label>
+                                <input type="text" placeholder="Ingrese su direccion" class="form-control"
+                                    id="direccion">
+                                <br>
+                                <label for="vehiculo" class="form-label">Vehiculo</label>
+                                <input type="text" placeholder="Ingrese la marca de su vehiculo" class="form-control"
+                                    id="vehiculo">
+                                <br>
+                                <label for="solteroa" class="form-label">¿Esta soltero/soltera?</label>
+                                <input type="text" placeholder="Responda Si o No" class="form-control" id="solteroa">
+                                <br>
+                                <label for="trabaja" class="form-label">¿Trabaja?</label>
+                                <input type="text" placeholder="Responda Si o No" class="form-control" id="trabaja">
+                                <br>
+                                <label for="profesional" class="form-label">¿Es profesional?</label>
+                                <input type="text" placeholder="Responda Si o No" class="form-control" id="profesional">
+                                <br>
+                                <div class="d-grid gap-2">
+                                    <button onclick="registrar()"
+                                        class="btn btn-outline-primary mt-2">Registrar</button>
+                                    <button onclick="limpiar()" class="btn btn-outline-danger mt-2">Limpiar
+                                        campos</button>
+                                    <button onclick="listar()" class="btn btn-outline-success mt-5">Listar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table mt-3 table-success table-striped table-sm caption-top table-bordered border-dark">
+                <caption style="color: white;"><strong>Lista de usuarios registrados</strong></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Vehiculo</th>
+                        <th scope="col">¿Soltero/a?</th>
+                        <th scope="col">¿Trabaja?</th>
+                        <th scope="col">¿Profesional?</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card col-12 mt-5" data-bs-theme="dark">
+                    <h5 class="card-header text-center">Contacto y redes sociales</h5>
+                    <div class="card-body text-center">
+                        <p class="card-text">Puedes seguirnos y comunicarte con nosotros en nuestras redes sociales</p>
+                        <button style="margin: 5px;" onclick="window.open('https://www.facebook.com','_blank');"
+                            type="button" class="btn btn-outline-light"><b class="bi bi-facebook"> Facebook</b></button>
+                        <button style="margin: 5px;" onclick="window.open('https://twitter.com/?lang=es','_blank');"
+                            type="button" class="btn btn-outline-light"><b class="bi bi-twitter-x"> Twitter</b></button>
+                        <button style="margin: 5px;" onclick="window.open('https://www.instagram.com','_blank');"
+                            type="button" class="btn btn-outline-light"><b class="bi bi-instagram">
+                                Instagram</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./app.js"></script>
+</body>
+
+</html>
