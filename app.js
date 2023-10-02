@@ -4,10 +4,10 @@ function cambiarType() {
 
     if (miInput.type === "password") {
         miInput.type = "text";
-        cambiarTipoBoton.textContent = "Ocultar";
+        cambiarTipoBoton.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
     } else {
         miInput.type = "password";
-        cambiarTipoBoton.textContent = "Mostrar";
+        cambiarTipoBoton.innerHTML = '<i class="bi bi-eye-fill"></i>';
     }
 }
 
@@ -37,6 +37,34 @@ function alerta(tipo) {
         },100);
     }, 3000);
 }
+
+function valido(tipo) {
+    var valido = document.createElement("div");
+    valido.classList.add("alert", "alert-success", "alert-dismissible", "fade", "show");
+
+    var mensaje = ""
+
+    valido.innerHTML = `
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          ${mensaje.innerHTML = "<strong>Felicidades!</strong> " + tipo}
+        `;
+
+    valido.querySelector(".btn-close").addEventListener("click", function () {
+        valido.remove();
+    });
+
+    document.body.prepend(valido);
+
+    window.scrollTo(0, 0);
+
+    setTimeout(function () {
+        valido.classList.remove("show");
+        setTimeout(function () {
+            valido.remove();
+        },100);
+    }, 3000);
+}
+
 
 let usuarios = [
     { cedula: "000", nombre: "Mauricio", apellido: "Pallares", direccion: "calle 58", vehiculo: "Ferrari", solteroa: "No", trabaja: "Si", profesional: "Si" },
@@ -88,6 +116,8 @@ const registrar = () => {
     document.getElementById('solteroa').value = ""
     document.getElementById('trabaja').value = ""
     document.getElementById('profesional').value = ""
+
+    valido('Usuario registrado correctamente')
 }
 
 const iniciarSesion = () => {
@@ -95,6 +125,7 @@ const iniciarSesion = () => {
     const contraseña = document.getElementById('contrasena').value.trim()
     if (!correo) return alerta('Ingrese su correo electronico')
     if (!contraseña) return alerta('Ingrese su contraseña')
+    valido('Ha iniciado sesion correctamente')
 }
 
 const limpiar = () => {
